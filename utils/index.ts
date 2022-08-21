@@ -2,7 +2,7 @@ import axios from 'axios';
 import jwt_decode from 'jwt-decode'
 import { decode } from 'punycode';
 
-export const createOrGetUser = async (response: any) => {
+export const createOrGetUser = async (response: any, addUser: any) => {
   const decoded: { name: string, picture: string, sub: string } = jwt_decode(response.credential)
 
   const { name, picture, sub } = decoded
@@ -14,5 +14,7 @@ export const createOrGetUser = async (response: any) => {
     image: picture
   }
 
-  console.log(decoded)
+  addUser(user)
+
+  await axios.post(`http://localhost:3000/api/auth`, user)
 };
