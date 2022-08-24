@@ -81,7 +81,9 @@ const Profile = ({ data }: IProps) => {
               <VideoCard post={post} key={idx} />
             ))
           ) : (
-            <NoResults text={`No ${showUserVideos ? '' : 'Liked'} Videos Yet`}/>
+            <NoResults
+              text={`No ${showUserVideos ? "" : "Liked"} Videos Yet`}
+            />
           )}
         </div>
       </div>
@@ -89,7 +91,7 @@ const Profile = ({ data }: IProps) => {
   )
 }
 
-export const getSserverSideProps = async ({
+export const getServerSideProps = async ({
   params: { id },
 }: {
   params: { id: string }
